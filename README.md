@@ -7,7 +7,7 @@ unzip files and name the folder `titanic`.
 http://archive.ics.uci.edu/ml/datasets/Statlog+%28Image+Segmentation%29
 Unzip the files and name the folder `Image_Segmentation_Statlog`.
 
-Move both data folders inside same working directory as where the source files located.
+Move both data folders inside the same working directory as where the source files located.
 
 ## Source Files
 HW1-a.ipynb is for the Titanic dataset
