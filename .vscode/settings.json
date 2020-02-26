@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/lei/anaconda3/envs/mlrose-hiive/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
