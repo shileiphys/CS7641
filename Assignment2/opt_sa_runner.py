@@ -93,9 +93,11 @@ def main():
 
     OUTPUT_DIRECTORY = './output'
     
+    input_size = 25
+    
     ## Four Peaks
     experiment_name = '4peaks'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     sa = SARunner(problem=problem,
                  experiment_name=experiment_name,
@@ -111,7 +113,7 @@ def main():
 
     ## Flip Flop
     experiment_name = 'flipflop'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     sa = SARunner(problem=problem,
                  experiment_name=experiment_name,
@@ -119,14 +121,14 @@ def main():
                  seed=SEED,
                  iteration_list=2 ** np.arange(12),
                  decay_list=[mlrose_hiive.ExpDecay, mlrose_hiive.GeomDecay],
-                 temperature_list=[1, 10, 50, 100],
-                 max_attempts=50,)
+                 temperature_list=[1, 2, 5, 10, 50],
+                 max_attempts=50)
 
     df_run_stats, df_run_curves = sa.run() 
 
     ## Knapsack
     experiment_name = 'knapsack'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     sa = SARunner(problem=problem,
                 experiment_name=experiment_name,

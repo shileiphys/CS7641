@@ -92,51 +92,54 @@ def main():
     SEED = 1
 
     OUTPUT_DIRECTORY = './output'
-    
+
+    input_size = 25
+    pop_size_list = list(range(input_size, input_size*6, input_size))
+
     ## Four Peaks
     experiment_name = '4peaks'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     ga = GARunner(problem=problem,
                   experiment_name=experiment_name,
                   output_directory=OUTPUT_DIRECTORY,
                   seed=SEED,
                   iteration_list=2 ** np.arange(12),
-                  max_attempts=1000,
-                  population_sizes=[150, 200, 300],
-                  mutation_rates=[0.4, 0.5, 0.6])
+                  max_attempts=50,
+                  population_sizes=pop_size_list,
+                  mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
     df_run_stats, df_run_curves = ga.run() 
-    
+
     
     ## Flip Flop
     experiment_name = 'flipflop'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     ga = GARunner(problem=problem,
                   experiment_name=experiment_name,
                   output_directory=OUTPUT_DIRECTORY,
                   seed=SEED,
                   iteration_list=2 ** np.arange(12),
-                  max_attempts=1000,
-                  population_sizes=[150, 200, 300],
-                  mutation_rates=[0.4, 0.5, 0.6])
+                  max_attempts=50,
+                  population_sizes=pop_size_list,
+                  mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
     df_run_stats, df_run_curves = ga.run() 
 
 
     ## Knapsack
     experiment_name = 'knapsack'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     ga = GARunner(problem=problem,
                   experiment_name=experiment_name,
                   output_directory=OUTPUT_DIRECTORY,
                   seed=SEED,
                   iteration_list=2 ** np.arange(12),
-                  max_attempts=1000,
-                  population_sizes=[150, 200, 300],
-                  mutation_rates=[0.4, 0.5, 0.6])
+                  max_attempts=50,
+                  population_sizes=pop_size_list,
+                  mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
     df_run_stats, df_run_curves = ga.run() 
     

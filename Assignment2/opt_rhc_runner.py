@@ -91,10 +91,12 @@ def main():
     SEED = 1
 
     OUTPUT_DIRECTORY = './output'
+
+    input_size = 25
     
     ## Four Peaks
     experiment_name = '4peaks'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     rhc = RHCRunner(problem=problem,
                     experiment_name=experiment_name,
@@ -109,7 +111,7 @@ def main():
 
     ## Flip Flop
     experiment_name = 'flipflop'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     rhc = RHCRunner(problem=problem,
                     experiment_name=experiment_name,
@@ -124,7 +126,7 @@ def main():
 
     ## Knapsack
     experiment_name = 'knapsack'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=20)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
 
     rhc = RHCRunner(problem=problem,
                     experiment_name=experiment_name,
