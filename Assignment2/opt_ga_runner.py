@@ -110,12 +110,12 @@ def main():
                   population_sizes=pop_size_list,
                   mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
-    # df_run_stats, df_run_curves = ga.run() 
+    df_run_stats, df_run_curves = ga.run() 
 
     
     ## Flip Flop
     experiment_name = 'flipflop'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=25)
 
     ga = GARunner(problem=problem,
                   experiment_name=experiment_name,
@@ -126,7 +126,7 @@ def main():
                   population_sizes=pop_size_list,
                   mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
-    # df_run_stats, df_run_curves = ga.run() 
+    df_run_stats, df_run_curves = ga.run() 
 
 
     ## Knapsack

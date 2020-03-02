@@ -111,7 +111,7 @@ def run(experiment_name, input_size=25):
         df_run_stats, df_run_curves = mmc.run()
     elif (experiment_name == 'flipflop'):
         ## Flip Flop        
-        problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+        problem = generate_problem(experiment_name, seed=SEED, input_size=25)
         
         mmc = MIMICRunner(problem=problem,
                         experiment_name=experiment_name,

@@ -113,7 +113,7 @@ def main():
 
     ## Flip Flop
     experiment_name = 'flipflop'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=25)
 
     sa = SARunner(problem=problem,
                  experiment_name=experiment_name,
@@ -124,7 +124,7 @@ def main():
                  temperature_list=[1.0, 5, 10, 50],
                  max_attempts=100)
 
-    # df_run_stats, df_run_curves = sa.run() 
+    df_run_stats, df_run_curves = sa.run() 
 
     ## Knapsack
     experiment_name = 'knapsack'
