@@ -97,16 +97,16 @@ def main():
     
     ## Four Peaks
     experiment_name = '4peaks'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=50)
 
     sa = SARunner(problem=problem,
                  experiment_name=experiment_name,
                  output_directory=OUTPUT_DIRECTORY,
                  seed=SEED,
-                 iteration_list=2 ** np.arange(12),
+                 iteration_list=2 ** np.arange(13),
                  decay_list=[mlrose_hiive.ExpDecay, mlrose_hiive.GeomDecay],
-                 temperature_list=[1, 10, 50, 100],
-                 max_attempts=50,)
+                 temperature_list=[1, 5, 10, 50],
+                 max_attempts=100)
 
     df_run_stats, df_run_curves = sa.run() 
 
@@ -119,25 +119,25 @@ def main():
                  experiment_name=experiment_name,
                  output_directory=OUTPUT_DIRECTORY,
                  seed=SEED,
-                 iteration_list=2 ** np.arange(12),
+                 iteration_list=2 ** np.arange(13),
                  decay_list=[mlrose_hiive.ExpDecay, mlrose_hiive.GeomDecay],
-                 temperature_list=[1, 2, 5, 10, 50],
-                 max_attempts=50)
+                 temperature_list=[1.0, 5, 10, 50],
+                 max_attempts=100)
 
-    df_run_stats, df_run_curves = sa.run() 
+    # df_run_stats, df_run_curves = sa.run() 
 
     ## Knapsack
     experiment_name = 'knapsack'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=150)
 
     sa = SARunner(problem=problem,
                 experiment_name=experiment_name,
                 output_directory=OUTPUT_DIRECTORY,
                 seed=SEED,
-                iteration_list=2 ** np.arange(12),
+                iteration_list=2 ** np.arange(13),
                 decay_list=[mlrose_hiive.ExpDecay, mlrose_hiive.GeomDecay],
-                temperature_list=[1, 10, 50, 100],
-                max_attempts=50,)
+                temperature_list=[1.0, 5.0, 10, 50],
+                max_attempts=200)
 
     df_run_stats, df_run_curves = sa.run() 
 

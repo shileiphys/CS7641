@@ -94,11 +94,12 @@ def main():
     OUTPUT_DIRECTORY = './output'
 
     input_size = 25
-    pop_size_list = list(range(input_size, input_size*6, input_size))
+    # pop_size_list = list(range(input_size, input_size*6, input_size))
+    pop_size_list = [50, 100, 150, 200]
 
     ## Four Peaks
     experiment_name = '4peaks'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=50)
 
     ga = GARunner(problem=problem,
                   experiment_name=experiment_name,
@@ -109,7 +110,7 @@ def main():
                   population_sizes=pop_size_list,
                   mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
-    df_run_stats, df_run_curves = ga.run() 
+    # df_run_stats, df_run_curves = ga.run() 
 
     
     ## Flip Flop
@@ -121,16 +122,16 @@ def main():
                   output_directory=OUTPUT_DIRECTORY,
                   seed=SEED,
                   iteration_list=2 ** np.arange(12),
-                  max_attempts=50,
+                  max_attempts=200,
                   population_sizes=pop_size_list,
                   mutation_rates=[0.05, 0.1, 0.25, 0.5])
     
-    df_run_stats, df_run_curves = ga.run() 
+    # df_run_stats, df_run_curves = ga.run() 
 
 
     ## Knapsack
     experiment_name = 'knapsack'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=150)
 
     ga = GARunner(problem=problem,
                   experiment_name=experiment_name,

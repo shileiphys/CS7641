@@ -43,11 +43,12 @@ y_test_hot = one_hot.fit_transform(y_test.reshape(-1, 1)).todense()
 
 
 grid_search_parameters = ({
+    'max_iters': [400],
     'learning_rate': [0.01],                         # nn params
     'schedule': [ExpDecay()]  # sa params
 })
 
-hidden_layer_sizes=[100]
+hidden_layer_sizes=[30, 20]
 
 # nnr = NNGSRunner(x_train=X_train_scaled,
 #                  y_train=y_train_hot,
@@ -74,10 +75,10 @@ nnr = NNGSRunner(x_train=X_train_scaled,
                  experiment_name='nn',
                  output_directory=OUTPUT_DIRECTORY,
                  algorithm=alg.genetic_alg,
-                 pop_size = [500],
+                 pop_size = [2000],
                  mutation_prob = [0.25],
                  grid_search_parameters=grid_search_parameters,
-                 iteration_list=[1000],
+                 iteration_list=[300],
                  hidden_layer_sizes=[hidden_layer_sizes],
                  activation=[mlrose_hiive.neural.activation.relu],
                  bias=True,
@@ -85,7 +86,7 @@ nnr = NNGSRunner(x_train=X_train_scaled,
                  clip_max=5,
                  max_attempts=500,
                  generate_curves=True,
-                 n_jobs=-1,
+                 n_jobs=2,
                  seed=SEED)
 
 results = nnr.run()

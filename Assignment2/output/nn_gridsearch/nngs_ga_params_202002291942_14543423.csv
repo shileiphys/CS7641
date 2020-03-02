@@ -1,0 +1,2 @@
+learning_rate,max_attempts,max_iters,mutation_prob,pop_size
+0.8,200,500,0.5,2000

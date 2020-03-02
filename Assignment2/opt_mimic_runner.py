@@ -92,19 +92,19 @@ def run(experiment_name, input_size=25):
     OUTPUT_DIRECTORY = './output'
 
     # pop_size_list = list(range(input_size, input_size*6, input_size))
-    pop_size_list = [100, 200, 250, 500]
+    pop_size_list = [50, 200, 250, 500]
 
     if (experiment_name == '4peaks'):
         ## Four Peaks
-        problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)        
+        problem = generate_problem(experiment_name, seed=SEED, input_size=50)        
 
         mmc = MIMICRunner(problem=problem,
                         experiment_name=experiment_name,
                         output_directory=OUTPUT_DIRECTORY,
                         seed=SEED,
                         iteration_list=2 ** np.arange(10),
-                        population_sizes=pop_size_list,
-                        max_attempts=50,
+                        population_sizes=[50, 200, 250, 500],
+                        max_attempts=100,
                         keep_percent_list=[0.1, 0.25, 0.5, 0.75],
                         use_fast_mimic=True)
                         
@@ -126,14 +126,14 @@ def run(experiment_name, input_size=25):
         df_run_stats, df_run_curves = mmc.run()
     elif (experiment_name == 'knapsack'):
         ## Knapsack
-        problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+        problem = generate_problem(experiment_name, seed=SEED, input_size=150)
 
         mmc = MIMICRunner(problem=problem,
                         experiment_name=experiment_name,
                         output_directory=OUTPUT_DIRECTORY,
                         seed=SEED,
                         iteration_list=2 ** np.arange(10),
-                        population_sizes=pop_size_list,
+                        population_sizes=[200, 250, 750],
                         max_attempts=50,
                         keep_percent_list=[0.1, 0.25, 0.5, 0.75],
                         use_fast_mimic=True)
@@ -141,7 +141,8 @@ def run(experiment_name, input_size=25):
         df_run_stats, df_run_curves = mmc.run()
     else:
         print('input error')
-
+    
+    print('input size:', input_size)
 
 if __name__ == '__main__':
     if (len(sys.argv) == 2):

@@ -96,45 +96,45 @@ def main():
     
     ## Four Peaks
     experiment_name = '4peaks'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=50)
 
     rhc = RHCRunner(problem=problem,
                     experiment_name=experiment_name,
                     output_directory=OUTPUT_DIRECTORY,
                     seed=SEED,
                     iteration_list=[1000,5000,10000],
-                    max_attempts=50,
-                    restart_list=[20,50,100])
+                    max_attempts=200,
+                    restart_list=[20,50,200])
 
     df_run_stats, df_run_curves = rhc.run() 
 
 
     ## Flip Flop
     experiment_name = 'flipflop'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=25)
 
     rhc = RHCRunner(problem=problem,
                     experiment_name=experiment_name,
                     output_directory=OUTPUT_DIRECTORY,
                     seed=SEED,
                     iteration_list=[1000,5000,10000],
-                    max_attempts=50,
-                    restart_list=[20,50,100])
+                    max_attempts=200,
+                    restart_list=[20,50,200])
 
     df_run_stats, df_run_curves = rhc.run()
 
 
     ## Knapsack
     experiment_name = 'knapsack'
-    problem = generate_problem(experiment_name, seed=SEED, input_size=input_size)
+    problem = generate_problem(experiment_name, seed=SEED, input_size=150)
 
     rhc = RHCRunner(problem=problem,
                     experiment_name=experiment_name,
                     output_directory=OUTPUT_DIRECTORY,
                     seed=SEED,
-                    iteration_list=[1000,5000,10000],
-                    max_attempts=50,
-                    restart_list=[20,50,100])
+                    iteration_list=[5000],
+                    max_attempts=200,
+                    restart_list=[20,50,200])
 
     df_run_stats, df_run_curves = rhc.run()
 
